@@ -91,7 +91,7 @@ var eliminar = (UsuarioId) => {
               text: "Se eliminó con éxito",
               icon: "success",
             });
-            cargaTabla(); // Actualiza la tabla después de eliminar
+            cargaTabla();
           } else {
             Swal.fire({
               title: "Usuarios",

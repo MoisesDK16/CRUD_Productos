@@ -7,7 +7,6 @@ $producto = new Clase_Productos();
 $metodo = $_SERVER['REQUEST_METHOD'];
 
 switch ($_GET["op"]) {
-    /*TODO: Procedimiento para listar todos los registros */
     case 'todos':
         $datos = array();
         $datos = $producto->obtenerProductos();
@@ -18,12 +17,11 @@ switch ($_GET["op"]) {
         echo json_encode($todos);
         break;
         
-    /*TODO: Procedimiento para sacar un registro */
     case 'uno':
         if (isset($_GET["id"])) {
             $idProducto = intval($_GET["id"]);
             $datos = $producto->uno($idProducto);
-            echo json_encode($datos); // Devuelve los datos del usuario en formato JSON
+            echo json_encode($datos); 
         } else {
             echo json_encode(array("message" => "ID no proporcionado"));
         }
@@ -48,7 +46,6 @@ switch ($_GET["op"]) {
         }
         break;
         
-    /*TODO: Procedimiento para actualizar */
     case 'actualizar':
         $ProductoId = $_POST["EditarProductoId"] ?? null;
         $Nombre = $_POST["EditarNombre"] ?? null;
@@ -67,7 +64,7 @@ switch ($_GET["op"]) {
         }
         break;
         
-    /*TODO: Procedimiento para eliminar */
+
     case 'eliminar':
         if (isset($_POST["idProducto"])) {
             $idProducto = intval($_POST["idProducto"]);
